@@ -6,7 +6,7 @@ int isAccount(int num)
 {
      if((num<ID) || (num>(ID+SIZE)))
     {
-        printf("The account number is not Exisest in the system (901-950)\n ");
+        printf("The account number is not Exisest in the system (901-950)\n");
         return 0;
     }
       if(!(int)ServicePoint[num-ID][COL0])
@@ -49,7 +49,7 @@ void createAccount(){
 void getBalance()
 {
     int accNum=0;
-    printf("Enter your account number :");
+    printf("Enter your account number:\n");
     if(scanf(" %d",&accNum)!=1) 
     {
         printf("ERROR,invalid input\n");
