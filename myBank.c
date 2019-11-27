@@ -35,6 +35,8 @@ void createAccount(){
                       printf("ERRE,invalid input\n");
                       return;
                   }   
+                  int tmp= (int)(sum*100);
+                  sum=(double)(tmp)/100;
                 ServicePoint[i][COL0] = COL1;
                 ServicePoint[i][COL1] = sum;
                 printf("Your account number is: %d\n",(i+ID));
