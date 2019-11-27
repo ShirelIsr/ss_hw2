@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "myBank.h"
+double ServicePoint [SIZE][2];
 
 int isAccount(int num)
 {
