@@ -11,7 +11,7 @@ int isAccount(int num)
     }
       if(!(int)ServicePoint[num-ID][COL0])
     {
-        printf("account dons't exist");
+        printf("account dons't exist\n");
         return 0;
     }
     return 1;
@@ -32,7 +32,7 @@ void createAccount(){
                   
                       if(sum<0)
                   {
-                      printf("ERRE,invalid input\n");
+                      printf("ERROR,invalid input\n");
                       return;
                   }   
                   int tmp= (int)(sum*100);
@@ -52,7 +52,7 @@ void getBalance()
     printf("Enter your account number :");
     if(scanf(" %d",&accNum)!=1) 
     {
-        printf("ERR,invalid input\n");
+        printf("ERROR,invalid input\n");
         return;
     }
     if(!isAccount(accNum)) {return;}
@@ -69,23 +69,23 @@ void deposit()
 {
   int accNum=0;
   double sum=0;
-  printf("Enter your account number \n");
+  printf("Enter your account number:\n");
  if(!scanf("%d",&accNum)) 
  {
-        printf("ERR,invalid input\n");
+        printf("ERROR,invalid input\n");
         return;
  }
    if(!isAccount(accNum)) return;
      accNum=accNum-ID;
-    printf("Enter amount to deposit?");
+    printf("Enter amount to deposit\n");
     if(!scanf("%lf",&sum)) 
     {
-        printf("ERR,invalid input\n");
+        printf("ERROR,invalid input\n");
         return;
     }
       if(sum<=0) 
        {
-         printf("ERRE,invalid input\n");
+         printf("ERROR,invalid input\n");
          return;  
           }
    ServicePoint[accNum][COL1] += sum;
@@ -97,22 +97,22 @@ void withdraw()
 {
   int accNum=0;
   double sum=0;
-  printf("Enter your account number \n");
+  printf("Enter your account number:\n");
   if(scanf("%d",&accNum)!=1) 
   {
-      printf("ERR,invalid input\n");
+      printf("ERROR,invalid input\n");
       return;
   }
   if(!isAccount(accNum)) return;
   accNum-=ID;
-    printf("Enter amount to withdraw?");
+    printf("Enter amount to withdraw\n");
     if(scanf("%lf",&sum)!=1)  
     {
-        printf("ERR,invalid input\n");
+        printf("ERROR,invalid input\n");
         return;
     }
       if(sum<=0)  {
-         printf("ERRE,invalid input\n");
+         printf("ERROR,invalid input\n");
           return;
                   }
     if(sum<ServicePoint[accNum][COL1]) 
@@ -121,7 +121,7 @@ void withdraw()
         printf("new balance is: %.2lf\n",ServicePoint[accNum][COL1]);
         return ;
    }
-   printf("the withdroe is not allowd\n");
+   printf("the withdraw is not allowd\n");
 
 }
 void addInterest()
@@ -130,12 +130,12 @@ void addInterest()
     printf("Enter the Insterest \n");
     if(scanf("%lf",&interest)!=1) 
     {
-        printf("ERR,invalid input\n");
+        printf("ERROR,invalid input\n");
         return;
     }
     if(interest<=0)
     {
-        printf("ERR,the interest should be bigger then zero\n");
+        printf("ERROR,the interest should be bigger then zero\n");
         return;
     }
     for(int i=0;i<SIZE;i++)
@@ -149,22 +149,23 @@ void addInterest()
 void closeAccount()
 {
     int accNum=0;
-    printf("Enter your account number :");
+    printf("Enter your account number:\n");
       if(scanf("%d",&accNum)!=1) 
   {
-      printf("ERR,invalid input\n");
+      printf("ERROR,invalid input\n");
       return;
   }
     if(!isAccount(accNum)) {return;}
     accNum-=ID;
     if(!ServicePoint[accNum][COL0])
     {
-        printf("the account is allredy close\n");
+        printf("the account is already close\n");
         return;
     }
     if(ServicePoint[accNum][COL1]>0)
     {
-        printf("Ther is %lf,in the account ",ServicePoint[accNum][COL1]);
+        printf("There is %lf,in the account\n",ServicePoint[accNum][COL1]);
+        printf("The acccount is closed\n");
     }
     ServicePoint[accNum][COL1]=0;
         ServicePoint[accNum][COL0]=0;
@@ -177,17 +178,17 @@ void printAllAccount()
         if(ServicePoint[i][COL0])
         {
             printf( "%d) Number account : %d",j,(i+ID));
-            printf("Ther is %.2lf in the account\n",ServicePoint[i][COL1]);
+            printf("There is %.2lf in the account\n",ServicePoint[i][COL1]);
             j++;
         }
     }
     if(j==1)
     {
-        printf("Ther is no accounts open in the bank\n");
+        printf("There is no accounts open in the bank\n");
     }
 
 }
 void closeAllAccount()
 { 
-  printf("All the acconts are closed , have a great day!");
+  printf("All the acconts are closed , have a great day!\n");
 }
