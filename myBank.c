@@ -177,8 +177,8 @@ void printAllAccount()
     {
         if(ServicePoint[i][COL0])
         {
-            printf( "%d) Number account : %d",j,(i+ID));
-            printf("There is %.2lf in the account\n",ServicePoint[i][COL1]);
+            printf( "%d) Number account : %d ",j,(i+ID));
+            printf(" There is %.2lf in the account\n",ServicePoint[i][COL1]);
             j++;
         }
     }
